@@ -2,12 +2,52 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px #ddd;
-    padding: 15px;
+    padding:40px 20px;
     position: relative;
+    width: 50%;
+    display: block;
+    margin: 30px auto;
+   
 }
 
 .from-text{
     position: absolute;
     right: 10px;
     bottom: 10px;
+    font-size: 20px;
 }
+.lamp-img{
+    height: 100px;
+    position: absolute;
+}
+.left-lamp{
+    top:10px;
+    left:10px;
+}
+.right-lamp{
+    top:10px;
+    right:10px;
+}
+.to-text{
+    margin-top: 100px;
+    font-size: 25px;
+}
+.greeting-text{
+    font-size: 20px;
+}
+.input-box{
+    margin: 20px;
+    padding: 12px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:768px){
+    .greeting-container{
+        width: 70%;
+    }
+    .greeting-text{
+        margin-bottom: 30px;
+    }
+
+

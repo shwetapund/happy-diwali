@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import "./Home.css";
+import lampimg from "./diwali-lamp.png";
+import divaimg from "./lamp.png";
 
 const GREETINGS = [
     "स्नेहाचा सुगंध दरवळला, आनंदाचा सण आला. विनंती आमची परमेश्वराला, सौख्य, समृध्दी लाभो तुम्हाला.दिवाळीच्या हार्दिक शुभेच्छा!",
@@ -12,22 +14,67 @@ const GREETINGS = [
 function Home() {
     const [searchParams] = useSearchParams();
 
-    const to = searchParams.get('to');
-    const from = searchParams.get('from');
-
-    const greetingNumber = searchParams.get("g") >= GREETINGS.length ? 0 : searchParams.get("g") || 0;
+    const [to, setTo] = useState(searchParams.get('to'));
+    const [from ,setFrom] = useState(searchParams.get('from'));
+    const [greetingNumber, setGreetingNumber] = useState(searchParams.get("g") >= GREETINGS.length ? 0 : searchParams.get("g") || 0);
+    const [theme, setTheme] = useState('')
 
   return (
+    <>
     <div className='greeting-container'>
-      <span>Dear {to} 💐</span>
+      <img src={lampimg} className='lamp-img left-lamp'/>
+      <img src={lampimg} className='lamp-img right-lamp'/>
+      <p className='to-text'>Dear {to} 💐</p>
 
-      <p>
+      <p className='greeting-text'>
         {GREETINGS[greetingNumber]}
       </p>
 
-        <span className="from-text"> 
-           🙏 आपला शुभेच्छुक {from}</span> 
+      <img src={divaimg} className='diva-img'/>
+        <p className="from-text"> 
+           🙏 आपला शुभेच्छुक {from}</p> 
     </div>
+
+    <div className='input-container'>
+      <input 
+      type='text'
+      placeholder='To'
+      className='input-box'
+      value={to}
+      onChange={(e)=>{
+        setTo(e.target.value);
+
+      }}
+      />
+       <input 
+      type='text'
+      placeholder='From'
+      className='input-box'
+      value={from}
+      onChange={(e)=>{
+        setFrom(e.target.value);
+      }}
+      />
+       <input 
+      type='text'
+      placeholder='greeting'
+      className='input-box'
+      value={greetingNumber}
+      onChange={(e)=>{
+        setGreetingNumber(e.target.value);
+      }}
+      />
+       <input 
+      type='text'
+      placeholder='greeting'
+      className='input-box'
+      value={theme}
+      onChange={(e)=>{
+      setTheme(e.target.value);
+      }}
+      />
+    </div>
+    </>
   )
 }
 
