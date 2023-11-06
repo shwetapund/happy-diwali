@@ -55,7 +55,7 @@ function Home() {
         setFrom(e.target.value);
       }}
       />
-       <input 
+       {/* <input 
       type='text'
       placeholder='greeting'
       className='input-box'
@@ -63,8 +63,31 @@ function Home() {
       onChange={(e)=>{
         setGreetingNumber(e.target.value);
       }}
-      />
-       <input 
+      /> */}
+
+      <select  
+        onChange={(e)=>{
+        setGreetingNumber(e.target.value);
+      }}
+      className='input-box'>
+        <option value={0}>Greeting-1</option>
+        <option value={1}>Greeting-2</option>
+        <option value={2}>Greeting-3</option>
+        <option value={3}>Greeting-4</option>
+      </select>
+
+      <select 
+      onChange={(e)=>{
+      setTheme(e.target.value);
+      }}
+      className='input-box'>
+        <option value={0}>Theme-1</option>
+        <option value={1}>Theme-2</option>
+        <option value={2}>Theme-3</option>
+        <option value={3}>Theme-4</option>
+        <option value={4}>Theme-5</option>
+      </select>
+       {/* <input 
       type='text'
       placeholder='greeting'
       className='input-box'
@@ -72,7 +95,7 @@ function Home() {
       onChange={(e)=>{
       setTheme(e.target.value);
       }}
-      />
+      /> */}
     </div>
     </>
   )

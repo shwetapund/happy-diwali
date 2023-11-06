@@ -7,6 +7,10 @@
     width: 50%;
     display: block;
     margin: 30px auto;
+   background-image: url(https://i.ytimg.com/vi/pK0kzl7eiic/maxresdefault.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   font-weight: bold;
    
 }
 
@@ -15,6 +19,7 @@
     right: 10px;
     bottom: 10px;
     font-size: 20px;
+    font-weight: bold;
 }
 .lamp-img{
     height: 100px;
@@ -49,5 +54,5 @@
     .greeting-text{
         margin-bottom: 30px;
     }
-
+}
 
