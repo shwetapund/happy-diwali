@@ -17,11 +17,11 @@ function Home() {
     const [to, setTo] = useState(searchParams.get('to'));
     const [from ,setFrom] = useState(searchParams.get('from'));
     const [greetingNumber, setGreetingNumber] = useState(searchParams.get("g") >= GREETINGS.length ? 0 : searchParams.get("g") || 0);
-    const [theme, setTheme] = useState('')
+    const [theme, setTheme] = useState('t')
 
   return (
     <>
-    <div className='greeting-container'>
+    <div className={`greeting-container ${theme} `}>
       <img src={lampimg} className='lamp-img left-lamp'/>
       <img src={lampimg} className='lamp-img right-lamp'/>
       <p className='to-text'>Dear {to} 💐</p>
@@ -34,6 +34,8 @@ function Home() {
         <p className="from-text"> 
            🙏 आपला शुभेच्छुक {from}</p> 
     </div>
+
+    <p className='link-generate'>{`http://localhost:3001/?to=${to}&from=${from}&g=${greetingNumber}&t=${theme}`}</p>
 
     <div className='input-container'>
       <input 
@@ -81,11 +83,11 @@ function Home() {
       setTheme(e.target.value);
       }}
       className='input-box'>
-        <option value={0}>Theme-1</option>
-        <option value={1}>Theme-2</option>
-        <option value={2}>Theme-3</option>
-        <option value={3}>Theme-4</option>
-        <option value={4}>Theme-5</option>
+      <option value="theming-1">Theme-1</option>
+        <option value="theming-2">Theme-2</option>
+        <option value="theming-3">Theme-3</option>
+        <option value="theming-4">Theme-4</option>
+        <option value="theming-5">Theme-5</option>
       </select>
        {/* <input 
       type='text'
