@@ -1,12 +1,16 @@
-import React from 'react'
-import Home from "./views/Home/Home"
+import ReactDOM from "react-dom/client";
+import Home from "./views/Home/Home";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-function index() {
-  return (
-    <div>
-      <Home/>
-    </div>
-  )
-}
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element:<Home/>
+  }
+])
 
-export default index
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
+<RouterProvider router = {router} />
+)
