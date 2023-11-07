@@ -38,14 +38,13 @@ function Home() {
 
     <p className='create-your-own'>Do you want to create your own Diwali Greeting? Customized it here 👇</p>
 
-    <p className='link-generate' >
-      {`${process.env.REACT_APP_BASE_URL}?to=${to}&from=${from}&g=${greetingNumber}&t=${themeNumber}`}
-      <img src={copyImg}  className='copy-img'
-      onClick={()=>{
+    <p className='link-generate' onClick={()=>{
         const url = `${process.env.REACT_APP_BASE_URL}?to=${to}&from=${from}&g=${greetingNumber}&t=${themeNumber}`
         navigator.clipboard.writeText(url);
         alert(`Copied to clipboard: ${url}`);
-      }}/>
+      }}>
+      {`${process.env.REACT_APP_BASE_URL}?to=${to}&from=${from}&g=${greetingNumber}&t=${themeNumber}`}
+      <img src={copyImg}  className='copy-img'/>
       </p>
  
     <div className='input-container'>
