@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import "./Home.css";
 import lampimg from "./diwali-lamp.png";
 import divaimg from "./lamp.png";
+import copyImg from "./../Home/copy.png";
 
 const GREETINGS = [
     "स्नेहाचा सुगंध दरवळला, आनंदाचा सण आला. विनंती आमची परमेश्वराला, सौख्य, समृध्दी लाभो तुम्हाला.दिवाळीच्या हार्दिक शुभेच्छा!",
@@ -17,11 +18,11 @@ function Home() {
     const [to, setTo] = useState(searchParams.get('to'));
     const [from ,setFrom] = useState(searchParams.get('from'));
     const [greetingNumber, setGreetingNumber] = useState(searchParams.get("g") >= GREETINGS.length ? 0 : searchParams.get("g") || 0);
-    const [theme, setTheme] = useState('t')
+    const [themeNumber, setThemeNumber] = useState(searchParams.get('t'))
 
   return (
     <>
-    <div className={`greeting-container ${theme} `}>
+    <div className={`greeting-container ${`theme-${themeNumber}`} `}>
       <img src={lampimg} className='lamp-img left-lamp'/>
       <img src={lampimg} className='lamp-img right-lamp'/>
       <p className='to-text'>Dear {to} 💐</p>
@@ -35,8 +36,18 @@ function Home() {
            🙏 आपला शुभेच्छुक {from}</p> 
     </div>
 
-    <p className='link-generate'>{`http://localhost:3001/?to=${to}&from=${from}&g=${greetingNumber}&t=${theme}`}</p>
+    <p className='create-your-own'>Do you want to create your own Diwali Greeting? Customized it here 👇</p>
 
+    <p className='link-generate' >
+      {`${process.env.REACT_APP_BASE_URL}?to=${to}&from=${from}&g=${greetingNumber}&t=${themeNumber}`}
+      <img src={copyImg}  className='copy-img'
+      onClick={()=>{
+        const url = `${process.env.REACT_APP_BASE_URL}?to=${to}&from=${from}&g=${greetingNumber}&t=${themeNumber}`
+        navigator.clipboard.writeText(url);
+        alert(`Copied to clipboard: ${url}`);
+      }}/>
+      </p>
+ 
     <div className='input-container'>
       <input 
       type='text'
@@ -57,16 +68,7 @@ function Home() {
         setFrom(e.target.value);
       }}
       />
-       {/* <input 
-      type='text'
-      placeholder='greeting'
-      className='input-box'
-      value={greetingNumber}
-      onChange={(e)=>{
-        setGreetingNumber(e.target.value);
-      }}
-      /> */}
-
+       
       <select  
         onChange={(e)=>{
         setGreetingNumber(e.target.value);
@@ -80,24 +82,16 @@ function Home() {
 
       <select 
       onChange={(e)=>{
-      setTheme(e.target.value);
+      setThemeNumber(e.target.value);
       }}
       className='input-box'>
-      <option value="theming-1">Theme-1</option>
-        <option value="theming-2">Theme-2</option>
-        <option value="theming-3">Theme-3</option>
-        <option value="theming-4">Theme-4</option>
-        <option value="theming-5">Theme-5</option>
+      <option value="1">Theme-1</option>
+        <option value="2">Theme-2</option>
+        <option value="3">Theme-3</option>
+        <option value="4">Theme-4</option>
+        <option value="5">Theme-5</option>
       </select>
-       {/* <input 
-      type='text'
-      placeholder='greeting'
-      className='input-box'
-      value={theme}
-      onChange={(e)=>{
-      setTheme(e.target.value);
-      }}
-      /> */}
+      
     </div>
     </>
   )

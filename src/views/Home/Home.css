@@ -1,14 +1,13 @@
 .greeting-container{
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px #f8e8e8;
     padding:40px 20px;
     position: relative;
     width: 50%;
     display: block;
     margin: 30px auto;
     background-color: #FFDEE9;
-   
    background-repeat: no-repeat;
    background-size: cover;
    font-weight: bold;
@@ -19,19 +18,20 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 }
 .lamp-img{
     height: 100px;
     position: absolute;
+    top:10px;
 }
 .left-lamp{
-    top:10px;
+
     left:10px;
 }
 .right-lamp{
-    top:10px;
+
     right:10px;
 }
 .to-text{
@@ -47,30 +47,79 @@
     font-size: 20px;
     border-radius: 10px;
 }
-.theming-1{
-   background-color: aqua;
+.theme-1{ 
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+
 }
-.theming-2{
-  background-color:skyblue;
+.theme-2{
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+        
 }
-.theming-3{
-background-color: red;
+.theme-3{
+    background-color: #A9C9FF;
+    background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+    
 }
-.theming-4{
- background-color: pink;
+.theme-4{
+ background-color: url(https://www.shutterstock.com/image-vector/happy-diwali-festival-background-website-260nw-2028919379.jpg);
 }
-.theming-5{
-    background-color:yellow;
+.theme-5{
+    background-color: #FF3CAC;
+    background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    
 }
 .link-generate{
+    text-align: center;
+    background-color: #e6ffff;
+    padding: 10px;
+    margin-top: 50px;
+    font-size: 20px;
     
+}
+.create-your-own{
+    text-align: center;
+    margin-top: 100px;
+    font-size: 20px;
+}
+.copy-img{
+    margin-left: 100px;
+    height: 20px;
+    cursor: pointer;
 }
 @media screen and (max-width:768px){
     .greeting-container{
-        width: 70%;
+        width: 80%;
     }
     .greeting-text{
         margin-bottom: 30px;
+        font-size: 18px;
     }
+    .create-your-own{
+        text-align: center;
+        margin-top: 30px;
+    }
+    .from-text{
+        font-size: 18px;
+        font-weight:700;
+    }
+    .to-text{
+        margin-top: 50px;
+        font-size: 22px;
+    }
+    .lamp-img{
+        height: 70px;
+    }
+    .diva-img{
+        height: 100px;
+        position:relative;
+       left: 80px;
+       bottom: 20px;
+    }
+    .link-generate{
+        width: 90%;
+    }
+   
 }
 
